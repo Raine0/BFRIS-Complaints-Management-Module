@@ -1,0 +1,102 @@
+@use "../util" as *;
+@use "../globals/" as *;
+
+.select {
+  @include set-bg($light400);
+  width: rem(200);
+  font-size: rem(14);
+  font-weight: 400;
+  border-radius: rem(5);
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+
+  @include breakpoint-down(medium) {
+    width: rem(170);
+    padding: rem(9);
+
+    font-size: rem(14);
+  }
+
+  @include breakpoint-down(small) {
+    width: rem(82);
+    font-size: rem(12);
+  }
+
+  &--table {
+    padding: rem(11.5);
+  }
+
+  &--resident-profile {
+    width: rem(275);
+    padding: rem(13.5) rem(14);
+    font-size: rem(15);
+    font-weight: 400;
+    letter-spacing: rem(0.5);
+    background: $light300;
+    color: rgba($dark400, 0.85);
+    border-radius: rem(8);
+    option {
+      font-size: rem(15);
+    }
+  }
+  &--announcements {
+    width: rem(270);
+    height: rem(55);
+    padding: rem(13.5) rem(14);
+    font-size: rem(16);
+    font-weight: 400;
+    letter-spacing: rem(0.5);
+    background: $light300;
+    color: rgba($dark400, 0.85);
+    border-radius: rem(8);
+
+    @media (max-width: 50.625em) {
+      display: block;
+      font-size: rem(15);
+    }
+  }
+
+  option {
+    font-size: rem(14);
+    border: none;
+    border-radius: rem(5);
+  }
+
+  &__wrapper {
+    position: relative;
+
+    &::after {
+      border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+      border-right: 2px solid rgba(0, 0, 0, 0.5);
+      content: "";
+      display: block;
+      @include wh(rem(8));
+      pointer-events: none;
+      position: absolute;
+      right: rem(14);
+      top: 36%;
+      transform: rotate(45deg);
+      transition: all 0.15s ease-in-out;
+
+      @media (max-width: 50.625em) {
+        display: none;
+      }
+    }
+
+    &--announcements {
+      &::after {
+        @media (max-width: 50.625em) {
+          display: block;
+          right: rem(20);
+        }
+      }
+    }
+  }
+}
+
+#residents__filter {
+  @media (max-width: 50.625em) {
+    display: none;
+  }
+}

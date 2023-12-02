@@ -1,0 +1,27 @@
+@use '../util/functions' as *;
+@use '../globals/variables' as *;
+
+// SET BG AND COLOR
+@mixin set-bg($color) {
+  background-color: $color;
+  color: set-text-color($color);
+}
+
+@mixin flex-center-all {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@mixin flex-justify-center {
+  display: flex;
+  justify-content: center;
+}
+@mixin flex-align-center {
+  display: flex;
+  align-items: center;
+}
+
+@mixin wh($size) {
+  width: $size;
+  height: $size;
+}

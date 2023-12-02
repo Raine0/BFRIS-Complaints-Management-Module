@@ -1,0 +1,96 @@
+@use "../util" as *;
+@use "../globals/" as *;
+
+.announcements {
+  @include flex-justify-center;
+  flex-direction: column;
+
+  &__contacts {
+    margin-bottom: rem(30);
+  }
+
+  &__contacts,
+  &__message {
+    label {
+      display: block;
+      margin-bottom: rem(5);
+      font-size: rem(15);
+    }
+  }
+
+  &__radio {
+    display: flex;
+    overflow: hidden;
+    border-radius: rem(15);
+    box-shadow: $shadow;
+
+    &-input {
+      display: none;
+
+      &:checked + .announcements__radio-label {
+        background: darken($primary, 15);
+      }
+    }
+
+    &-label {
+      padding: rem(10) rem(20);
+      @include set-bg($primary);
+      transition: 100ms;
+      cursor: pointer;
+      white-space: nowrap;
+
+      @include breakpoint-down(medium) {
+        padding: rem(8) rem(14);
+        font-size: rem(14);
+      }
+
+      @include breakpoint-down(small) {
+        font-size: rem(12);
+      }
+    }
+  }
+
+  &__message {
+    height: rem(400);
+    width: 100%;
+  }
+}
+
+.message {
+  width: 100%;
+  overflow-wrap: break-word;
+
+  &__date-time {
+    font-size: rem(14);
+    color: $dark300;
+  }
+
+  &__container {
+    height: 100%;
+  }
+
+  &__field {
+    height: 80%;
+    margin-bottom: rem(20);
+
+    textarea {
+      max-width: 100%;
+      min-width: 100%;
+      max-height: 100%;
+      min-height: 100%;
+      background: $light300;
+      outline: none;
+      padding: rem(20);
+      border-radius: rem(10);
+
+      &:focus {
+        border: rem(1) solid $primary;
+      }
+    }
+  }
+
+  &__counter {
+    font-size: rem(14);
+    margin-left: auto;
+  }
+}

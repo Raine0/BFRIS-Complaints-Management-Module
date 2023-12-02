@@ -1,0 +1,31 @@
+@use "../util" as *;
+@use "../globals/" as *;
+
+
+
+.tabContent {
+align-items: center;
+justify-content: center;
+}
+  
+  .tab {
+    display: inline-block;
+    margin-right: rem(16);
+    padding: rem(8);
+    font-size: rem(13);
+    color: $dark200;
+    transition: 400ms;
+    cursor: pointer;
+    letter-spacing: rem(0.2);
+  
+    &:hover {
+      letter-spacing: rem(0.5);
+    }
+  
+    &--active {
+      border-radius: rem(8);
+      background: darken($light400, 5);
+      color: $dark400;
+      letter-spacing: rem(0.5);
+    }
+  }

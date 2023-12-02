@@ -1,0 +1,166 @@
+@use "../util" as *;
+@use "../globals/" as *;
+
+.reports {
+  @include flex-justify-center;
+  flex-direction: column;
+
+  &__card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: rem(20) rem(30);
+    border: rem(1) $primary solid;
+    border-radius: rem(20);
+    transition: 0.1s;
+
+    &--value {
+      font-size: rem(40);
+      font-weight: 600;
+      color: $primary;
+    }
+
+    &--label {
+      font-size: rem(16);
+      font-weight: 500;
+      color: $dark300;
+      white-space: nowrap;
+
+      @include breakpoint-down(small) {
+        font-size: rem(13);
+      }
+    }
+
+    &--icon {
+      @include flex-center-all;
+      color: $dark200;
+      font-size: rem(60);
+    }
+  }
+}
+
+.tabContent.reports {
+  position: relative;
+  width: 95%;
+
+  display: grid;
+  grid-template-rows: rem(100) 1fr;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: rem(30);
+  gap: rem(50);
+
+  @include breakpoint-down(medium) {
+    grid-template-rows: repeat(2, rem(100)) repeat(2, 1fr);
+    grid-template-columns: 1fr;
+  }
+}
+
+.graph {
+  h3 {
+    white-space: nowrap;
+    margin-bottom: rem(10);
+    text-align: center;
+  }
+}
+
+#reportForm {
+  @include flex-center-all;
+}
+
+.input-date-range {
+  position: relative;
+  @include flex-center-all;
+  flex-wrap: nowrap;
+  align-content: flex-start;
+  gap: rem(14);
+
+  h4 {
+    margin: 0 rem(8);
+  }
+}
+
+.card {
+  &__header-content--reports {
+    @include breakpoint-down(medium) {
+      flex-direction: column;
+    }
+
+    form {
+      @include breakpoint-down(medium) {
+        display: none !important;
+      }
+    }
+
+    .input__inner {
+      height: rem(37);
+    }
+  }
+
+  &__header {
+    &--hide {
+      @include breakpoint-down(medium) {
+        display: none;
+      }
+    }
+  }
+
+  &__body-content--reports {
+    position: relative;
+
+    form {
+      display: none !important;
+
+      @include breakpoint-down(medium) {
+        width: 75%;
+        padding: rem(20);
+        border-radius: rem(12);
+        border: rem(1) solid darken($light400, 3);
+        display: flex !important;
+        margin-bottom: rem(30);
+      }
+
+      @include breakpoint-down(small) {
+        width: 100%;
+      }
+    }
+
+    .input-date-range {
+      @include breakpoint-down(medium) {
+        width: 100%;
+        flex-direction: column;
+        gap: rem(10);
+      }
+
+      h4 {
+        @include breakpoint-down(medium) {
+          font-size: rem(14);
+        }
+      }
+    }
+
+    .input__inner {
+      @include breakpoint-down(medium) {
+        height: rem(40);
+        width: 100%;
+      }
+    }
+
+    .filterBtn {
+      @include breakpoint-down(medium) {
+        width: 100%;
+        height: rem(37);
+        margin-top: rem(4);
+      }
+    }
+  }
+}
+
+.tabs {
+  &--reports {
+    li {
+      @include breakpoint-down(small) {
+        font-size: rem(11);
+      }
+    }
+  }
+}

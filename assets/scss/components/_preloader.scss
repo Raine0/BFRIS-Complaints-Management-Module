@@ -1,0 +1,38 @@
+@use "../util" as *;
+@use "../globals/" as *;
+
+.loader-wrapper {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: $light100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: bouncingLoader 0.4s;
+  animation-direction: alternate;
+  animation-timing-function: cubic-bezier(0.5, 0.05, 1, 0.5);
+  animation-iteration-count: infinite;
+
+  img {
+    width: rem(225);
+  }
+}
+
+@keyframes bouncingLoader {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(rem(30));
+  }
+}

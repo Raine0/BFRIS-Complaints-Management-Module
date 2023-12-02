@@ -1,0 +1,325 @@
+@use "../util" as *;
+@use "../globals/" as *;
+
+.button {
+  @include flex-center-all;
+  border-radius: rem(5);
+  letter-spacing: rem(1);
+  transition: all 0.25s;
+  font-weight: 500;
+
+  p {
+    color: $light100;
+  }
+
+  span {
+    pointer-events: none;
+  }
+
+  .bx {
+    margin-right: rem(8);
+    @include breakpoint(large) {
+      pointer-events: none;
+    }
+
+    &-right {
+      margin-right: 0;
+      margin-left: rem(8);
+    }
+  }
+
+  &--rounded {
+    border-radius: 50%;
+    padding: rem(8) !important;
+    cursor: pointer;
+
+    .bx {
+      margin: 0;
+    }
+  }
+
+  &--primary {
+    @include set-bg($primary);
+
+    &:hover {
+      background: darken($primary, 20);
+    }
+  }
+
+  &--dark {
+    @include set-bg($dark200);
+
+    &:hover {
+      background: darken($dark200, 12);
+    }
+  }
+
+  &--green {
+    @include set-bg($emerald);
+
+    &:hover {
+      background: darken($emerald, 12);
+    }
+  }
+
+  &--light {
+    @include set-bg($light400);
+
+    &:hover {
+      background: darken($light400, 10);
+    }
+  }
+
+  &--blue {
+    @include set-bg($blue);
+
+    &:hover {
+      background: darken($blue, 10);
+    }
+  }
+
+  &--danger {
+    @include set-bg($danger);
+
+    &:hover {
+      background: darken($danger, 10);
+    }
+  }
+
+  &--warning {
+    @include set-bg($warning);
+
+    &:hover {
+      background: darken($warning, 10);
+    }
+  }
+
+  &--info {
+    @include set-bg($info);
+
+    &:hover {
+      background: darken($info, 10);
+    }
+  }
+
+  &--success {
+    @include set-bg($success);
+
+    &:hover {
+      background: darken($success, 10);
+    }
+  }
+
+  &--primary-outline {
+    color: $primary;
+    border: rem(1) solid $primary;
+
+    &:hover {
+      background: $primary;
+      color: $light100;
+
+      p {
+        color: $light100;
+      }
+    }
+  }
+
+  &--dark-outline {
+    color: $dark200;
+    border: rem(1) solid $dark200;
+
+    &:hover {
+      background: $dark200;
+      color: $light100;
+
+      p {
+        color: $light100;
+      }
+    }
+  }
+
+  &--light-outline {
+    color: $dark400;
+    border: rem(1) solid $dark200;
+
+    &:hover {
+      background: $light400;
+      color: $dark400;
+
+      p {
+        color: $dark400;
+      }
+    }
+  }
+
+  &--excel {
+    background: lighten(#207245, 8);
+    color: $light100;
+
+    &:hover {
+      background: lighten(#207245, 3);
+    }
+  }
+
+  &--pdf {
+    background: lighten(#b30b00, 8);
+    color: $light100;
+
+    &:hover {
+      background: lighten(#b30b00, 3);
+    }
+  }
+
+  &--xs {
+    padding: rem(6) rem(8);
+    font-size: rem(9);
+    letter-spacing: rem(1);
+
+    i {
+      font-size: rem(12);
+    }
+  }
+
+  &--sm {
+    padding: rem(8) rem(10);
+    font-size: rem(11);
+    font-weight: 400;
+    letter-spacing: rem(1);
+
+    i {
+      font-size: rem(14);
+    }
+  }
+
+  &--md {
+    padding: rem(10);
+    font-size: rem(14);
+    @include breakpoint-down(medium) {
+      padding: rem(8);
+      font-size: rem(13);
+    }
+  }
+
+  &--lg {
+    padding: rem(15);
+    font-size: rem(18);
+  }
+
+  &--xl {
+    font-size: rem(20);
+    width: rem(400);
+    height: rem(150);
+
+    @include breakpoint-down(small) {
+      width: rem(320);
+      height: rem(120);
+    }
+
+    i {
+      font-size: rem(28);
+    }
+
+    p {
+      margin-left: rem(8);
+    }
+  }
+
+  &--block {
+    width: 100%;
+    padding: rem(10) 0;
+    font-size: rem(18);
+  }
+
+  &--icon {
+    padding: rem(7) rem(7) 0 rem(7);
+    border-radius: rem(5);
+    cursor: pointer;
+
+    @include breakpoint-down(small) {
+      padding: rem(3) rem(6) 0 rem(6);
+    }
+
+    .bx {
+      font-size: rem(45);
+      color: $dark200;
+      margin: 0;
+      transition: 300ms;
+
+      &:hover {
+        color: darken($dark200, 15);
+      }
+
+      @include breakpoint-down(small) {
+        font-size: rem(30);
+      }
+    }
+
+    &-sm {
+      padding: rem(7.5) rem(8) 0 rem(8);
+      .bx {
+        font-size: rem(24);
+
+        @include breakpoint-down(small) {
+          font-size: rem(16);
+        }
+      }
+    }
+
+    &-md {
+      .bx {
+        font-size: rem(22);
+
+        @include breakpoint-down(small) {
+          font-size: rem(18);
+        }
+      }
+    }
+
+    &-primary {
+      .bx {
+        color: $primary;
+
+        &:hover {
+          color: darken($primary, 20);
+        }
+      }
+    }
+
+    &-light {
+      .bx {
+        color: $light100;
+
+        &:hover {
+          color: $light100;
+        }
+      }
+    }
+  }
+}
+
+.back-btn {
+  position: absolute;
+  top: rem(10);
+  left: rem(10);
+  transition: 300ms;
+  background: transparent;
+
+  &:hover {
+    color: $primary;
+    letter-spacing: rem(1.5);
+  }
+}
+
+.camera-btn {
+  margin-top: rem(10);
+  margin-bottom: rem(30);
+}
+
+.card__footer-content--right,
+.modal__footer {
+  button,
+  a,
+  input[type="button"] {
+    text-transform: uppercase;
+  }
+}

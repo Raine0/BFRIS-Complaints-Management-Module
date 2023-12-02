@@ -1,0 +1,14 @@
+@use "../util" as *;
+@use "../globals/" as *;
+
+
+section.settings{
+    display: flex;
+    flex-direction: column;
+
+    &__cert-price{
+        font-weight: 500;
+        color: $primary;
+        letter-spacing: rem(1);
+    }
+}

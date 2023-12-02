@@ -1,0 +1,40 @@
+@use "../util" as *;
+@use "../globals/" as *;
+
+.certificates {
+  @include flex-center-all;
+  height: 80vh;
+
+  &__button {
+    transition: 300ms;
+    &:hover {
+      transform: translateY(rem(-5));
+    }
+  }
+
+  &-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(rem(275), 1fr));
+    column-gap: rem(25);
+    row-gap: rem(5);
+
+    &__container {
+      @include flex-justify-center;
+    }
+
+    &__content {
+      width: 100%;
+      font-size: rem(15);
+
+      @include breakpoint-down(medium) {
+        font-size: rem(14);
+      }
+    }
+  }
+}
+
+#content-certificates {
+  @include breakpoint-down(medium) {
+    display: none;
+  }
+}

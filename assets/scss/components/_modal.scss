@@ -1,0 +1,114 @@
+@use "../util" as *;
+@use "../globals/" as *;
+
+@keyframes animateModal {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modal {
+  &__wrapper {
+    @include wh(100%);
+    
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: rem(20);
+    flex-wrap: wrap;
+    background-color: rgba(0, 0, 0, 0.7);
+    overflow: auto;
+    z-index: 2;
+    display: none;
+
+    &.modal--show {
+      @include flex-center-all;
+    }
+  }
+
+  &__window {
+    position: relative;
+    height: auto;
+    width: 90%;
+    padding: rem(20);
+    background: $light100;
+    border-radius: rem(20);
+    box-shadow: $shadow;
+    transition: 0.2s ease-in-out all;
+    margin: 0 auto;
+    animation-name: animateModal;
+    animation-duration: 400ms;
+
+    @include breakpoint-down(small) {
+      width: 98%;
+    }
+
+    &--sm {
+      width: rem(500);
+
+      @include breakpoint-down(medium) {
+        width: rem(400);
+      }
+
+      @include breakpoint-down(small) {
+        width: 90%;
+      }
+    }
+
+    &--md {
+      width: rem(750);
+
+      @include breakpoint-down(medium) {
+        width: rem(550);
+      }
+
+      @include breakpoint-down(small) {
+        width: 98%;
+      }
+    }
+  }
+
+  &__body {
+    width: 100%;
+    @include flex-center-all;
+    flex-direction: column;
+    text-align: justify;
+  }
+
+  &__header {
+    @include flex-align-center;
+    justify-content: flex-end;
+    border-bottom: rem(1) solid rgba($dark100, 0.3);
+    justify-content: flex-end;
+    margin-bottom: rem(20);
+    padding-bottom: rem(20);
+  }
+
+  &__footer {
+    @include flex-align-center;
+    justify-content: flex-end;
+    gap: rem(10);
+    border-top: rem(1) solid rgba($dark100, 0.3);
+    margin-top: rem(20);
+    padding-top: rem(20);
+  }
+
+  &__close {
+    background: transparent;
+    font-size: rem(26);
+    margin-left: auto;
+    color: rgba($dark300, 0.8);
+    justify-self: flex-end;
+    transition: 200ms;
+
+    &:hover {
+      color: $dark400;
+      transform: scale(1.15);
+    }
+  }
+}

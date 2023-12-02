@@ -1,0 +1,68 @@
+@use "../util" as *;
+@use "../globals/" as *;
+
+.table {
+  &-container {
+    overflow: scroll;
+  }
+  &__row {
+    &-img {
+      @include wh(rem(50));
+      border-radius: 50%;
+      position: relative;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        object-fit: cover;
+      }
+
+      @include breakpoint-down(small) {
+        @include wh(rem(34));
+      }
+    }
+
+    &-text {
+      cursor: pointer;
+
+      &:hover {
+        .table__row {
+          &-name {
+            color: $primary;
+          }
+          &-sub > div {
+            color: $primary;
+          }
+        }
+      }
+    }
+
+    &-name {
+      font-size: rem(20);
+      font-weight: 600;
+      transition: 0.15s;
+
+      @include breakpoint-down(small) {
+        font-size: rem(15);
+      }
+    }
+
+    &-sub {
+      font-size: rem(15);
+      color: $dark200;
+
+      & > div {
+        transition: 0.15s;
+      }
+    }
+  }
+
+  &__action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: rem(8);
+  }
+}

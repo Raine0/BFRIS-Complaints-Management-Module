@@ -1,0 +1,109 @@
+@use "../util" as *;
+@use "../globals/" as *;
+
+.header {
+  position: fixed;
+  top: 0;
+  width: calc(100% - 80px);
+  height: rem(64);
+  margin-left: rem(80);
+  padding: 0 rem(30);
+  background: $light100;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+  justify-content: flex-start;
+  box-shadow: 0px 0.3px 10px rgba(black, 0.2);
+
+  @include breakpoint-down(medium) {
+    width: 100vw;
+    padding: rem(30);
+    margin-left: 0;
+  }
+
+  @include breakpoint-down(small) {
+    padding: rem(30) rem(20);
+  }
+
+  &__menu {
+    display: none;
+
+    @include breakpoint-down(medium) {
+      color: $primary;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+
+      i {
+        font-size: rem(38);
+      }
+    }
+  }
+
+  &__title {
+    font-size: rem(20);
+    font-weight: 600;
+    color: $dark300;
+    margin-left: rem(10);
+    letter-spacing: rem(0.5);
+
+    @include breakpoint-down(medium) {
+      color: $dark200;
+      font-size: rem(18);
+    }
+  }
+
+  &__img {
+    @include wh(rem(30));
+    margin-left: auto;
+    margin-right: rem(7);
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+
+    @include breakpoint-down(medium) {
+      margin-right: 0;
+    }
+
+    @include breakpoint-down(small) {
+      @include wh(rem(27));
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      object-fit: cover;
+    }
+  }
+
+  &__role {
+    font-size: rem(15);
+    font-weight: 500;
+    color: $dark300;
+
+    @include breakpoint-down(medium) {
+      display: none;
+    }
+  }
+
+  &__toggle {
+    margin-left: rem(10);
+    color: $primary;
+    cursor: pointer;
+    transform: rotateX(0deg);
+    transition: transform 300ms;
+
+    &--rotate {
+      transform: rotateX(180deg);
+    }
+
+    i {
+      font-size: rem(11);
+    }
+
+    @include breakpoint-down(medium) {
+      margin-left: rem(4);
+    }
+  }
+}

@@ -1,0 +1,304 @@
+@use "../util" as *;
+@use "../globals/" as *;
+
+.residents {
+  &__header-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: rem(8);
+    width: 101%;
+  }
+}
+
+#residents {
+  &__filter-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+#add-resident,
+#export-resident {
+  white-space: nowrap;
+  p {
+    @include breakpoint-down(small) {
+      display: none;
+    }
+  }
+
+  .bx {
+    @include breakpoint-down(small) {
+      margin-right: 0;
+    }
+  }
+}
+
+.action {
+  &__cert,
+  &__view {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__cert {
+    position: relative;
+    @include breakpoint-down(medium) {
+      display: none;
+    }
+  }
+
+  &__view {
+    @include breakpoint-down(small) {
+      background: transparent;
+      width: rem(10);
+
+      &:hover {
+        color: lighten($dark300, 8);
+        background: transparent;
+      }
+
+      .bx {
+        font-size: rem(22);
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.profile {
+  &__img {
+    @include wh(rem(150));
+    position: relative;
+    background: $light400;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-top: rem(20);
+
+    @include breakpoint-down(small) {
+      @include wh(rem(100));
+    }
+
+    img {
+      @include wh(100%);
+      position: absolute;
+      top: 0;
+      left: 0;
+      object-fit: cover;
+    }
+
+    &--buttons {
+      @include flex-center-all;
+      gap: rem(8);
+    }
+  }
+
+  &__name {
+    font-size: rem(28);
+    font-weight: 600;
+
+    @include breakpoint-down(medium) {
+      font-size: rem(22);
+    }
+  }
+}
+
+.profile-info,
+.history-info {
+  &__list {
+    text-align: center;
+    margin: rem(30) 0 rem(40) 0;
+    margin-top: rem(35); 
+  }
+
+  &__item {
+    display: inline-block;
+    margin: 0 rem(14) rem(14) 0;
+    padding-right: rem(14);
+
+    @include breakpoint-down(medium) {
+      margin-right: rem(18);
+      padding-right: rem(18);
+    }
+
+    &:last-child {
+      border-right: none;
+    }
+
+    span {
+      cursor: pointer;
+      color: $dark200;
+      font-size: rem(14);
+      transition: 300ms;
+
+      &:hover {
+        color: $dark400;
+        letter-spacing: rem(0.5);
+      }
+
+      @include breakpoint-down(medium) {
+        font-size: rem(12);
+      }
+    }
+
+    &--active {
+      span {
+        padding: rem(8) rem(10);
+        border-radius: rem(8);
+        background: darken($light400, 3);
+        color: $dark400;
+        letter-spacing: rem(0.5);
+      }
+    }
+  }
+
+  &__sub-section {
+    text-indent: 20px; 
+    font-weight: bold;
+    font-size: clamp(0.875rem, 0.7147rem + 0.5128vw, 1.125rem);
+
+  }
+
+  &__content {
+    width: 100%;
+    font-size: rem(15);
+    display: none;
+
+    @include breakpoint-down(medium) {
+      font-size: rem(14);
+    }
+  }
+
+  &__container {
+    @include flex-justify-center;
+  }
+
+  &__basic-info,
+  &__voting,
+  &__others,
+  &__emergency {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(rem(275), 1fr));
+    column-gap: rem(25);
+    row-gap: rem(20);
+  }
+}
+
+.cameraBtn {
+  @include breakpoint-down(medium) {
+    display: none;
+  }
+}
+
+.pagination {
+  &__buttons {
+    @include flex-center-all;
+    margin-top: rem(20);
+
+    .circle {
+      cursor: pointer;
+      background: lighten($primary, 20);
+      @include wh(rem(9));
+      border-radius: 50%;
+      transition: 200ms;
+      margin: 0 rem(2.5);
+
+      &:hover {
+        background: lighten($primary, 5);
+      }
+
+      &--active {
+        border-radius: rem(10);
+        background: $primary;
+        width: rem(25);
+
+        &:hover {
+          background: $primary;
+        }
+      }
+    }
+  }
+
+  &__button {
+    @include flex-center-all;
+    height: rem(28);
+    cursor: pointer;
+    transition: 200ms;
+    color: $dark200;
+    border: rem(1) solid darken($light400, 15);
+    font-size: rem(12);
+    letter-spacing: rem(1);
+
+    &:hover {
+      background: darken($light400, 5);
+    }
+
+    &.prev {
+      padding: rem(2) rem(7) rem(2) rem(2);
+    }
+    &.next {
+      padding: rem(2) rem(2) rem(2) rem(7);
+    }
+
+    .bx {
+      font-size: rem(16);
+    }
+  }
+}
+
+.filter-reset {
+  @include flex-align-center;
+  position: absolute;
+  top: 21px;
+  left: 0;
+  gap: 8px;
+
+  @include breakpoint-down(small) {
+    top: 21px;
+    gap: 2px;
+  }
+
+  & .filter-btn {
+    @include breakpoint-down(small) {
+      background: none;
+      padding: 0;
+    }
+
+    i {
+      @include breakpoint-down(small) {
+        margin: 0;
+        font-size: rem(25);
+        color: $dark300;
+        transition: 200ms;
+
+        &:hover {
+          color: $dark400;
+        }
+      }
+    }
+    span {
+      @include breakpoint-down(small) {
+        display: none;
+      }
+    }
+  }
+
+  & .reset-btn {
+    display: flex;
+    justify-content: center;
+    font-size: rem(28);
+    transform: scaleX(-1);
+    filter: FlipH;
+
+    i {
+      color: $dark300;
+      transition: color 200ms, transform 250ms;
+
+      &:hover {
+        color: $dark400;
+        transform: rotate(90deg);
+      }
+    }
+  }
+}

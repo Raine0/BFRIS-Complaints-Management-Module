@@ -1,0 +1,41 @@
+@use "../util" as *;
+@use "../globals/variables" as *;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  line-height: 1.1;
+  color: $dark400;
+}
+
+p {
+  color: $dark400;
+}
+
+a,
+a:visited,
+a:active {
+  text-decoration: none;
+}
+
+a {
+  color: $dark400;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  color: $dark400;
+}
+
+li {
+  color: $dark400;
+}
+
+i{
+  font-style: normal;
+}

@@ -1,0 +1,15 @@
+@use "sass:math";
+@use "../globals/variables" as *;
+
+@function rem($pixels, $context: 16) {
+  @return (math.div($pixels, $context)) * 1rem;
+}
+
+// SET TEXT COLOR BASED ON BG
+@function set-text-color($color) {
+  @if (lightness($color) > 70) {
+    @return $dark400;
+  } @else {
+    @return $light100;
+  }
+}

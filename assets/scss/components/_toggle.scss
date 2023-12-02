@@ -1,0 +1,61 @@
+@use "../util" as *;
+@use "../globals/" as *;
+
+.toggleswitch {
+  position: relative;
+  width: rem(70) !important;
+  height: rem(40);
+  border-radius: rem(30) !important;
+  appearance: none;
+  cursor: pointer;
+  transition: 500ms;
+
+  &--resident-profile {
+    background: darken($light300, 15) !important;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    @include wh(rem(30));
+    border-radius: 50%;
+    top: rem(5);
+    left: rem(5.5);
+    background: $light100;
+    transition: 500ms;
+  }
+
+  &:checked {
+    background: $primary !important;
+
+    ~ .toggleswitch__indicator--on {
+      color: $primary;
+      font-weight: 500;
+    }
+  }
+  &:not(.toggleswitch:checked) {
+    ~ .toggleswitch__indicator--off {
+      color: $dark400;
+      font-weight: 500;
+    }
+  }
+
+  &:checked::before {
+    transform: translateX(rem(29));
+  }
+
+  &__wrapper {
+    height: rem(45);
+    @include flex-align-center;
+    gap: rem(8);
+  }
+
+  &__indicator {
+    color: $dark100;
+    transition: 500ms;
+
+    &--off {
+      order: -1;
+    }
+  }
+}

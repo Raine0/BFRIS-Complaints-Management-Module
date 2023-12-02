@@ -1,0 +1,206 @@
+@use "../util" as *;
+@use "../globals/variables" as *;
+
+/* SCROLL BAR */
+::-webkit-scrollbar {
+  width: rem(7);
+  height: rem(7);
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(175, 175, 175);
+  border-radius: rem(10);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(125, 125, 125);
+}
+
+/*  INPUT  */
+::-webkit-input-placeholder {
+  color: $dark100;
+  letter-spacing: 0.03ch;
+}
+
+input,
+textarea,
+select {
+  transition: border 300ms;
+}
+
+textarea,
+select {
+  border: rem(1) solid $light400;
+}
+
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+input[type="file"]:focus,
+input[type="date"]:focus,
+textarea:focus,
+select:focus {
+  border: rem(1) solid $primary !important;
+}
+
+input[disabled],
+select[disabled],
+textarea[disabled],
+select[readonly],
+textarea[readonly] {
+  cursor: not-allowed;
+}
+
+input[readonly] {
+  cursor: pointer;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+button,
+input[type="submit"],
+input[type="button"] {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+hr {
+  border: solid rgba(0, 0, 0, 0.1);
+  border-width: 1px 0 0;
+  clear: both;
+  margin: rem(25) 0;
+  height: 0;
+}
+
+main {
+  width: calc(100% - 80px);
+  height: calc(100% - 70px);
+  margin-left: rem(80);
+  margin-top: rem(70);
+  display: flex;
+  justify-content: center;
+
+  @include breakpoint-down(medium) {
+    width: 100%;
+    height: 100%;
+    margin-left: 0;
+    margin-top: rem(64);
+  }
+}
+
+.content {
+  position: relative;
+  width: 100%;
+  padding: rem(40);
+  overflow: hidden;
+
+  @include breakpoint-down(medium) {
+    padding: rem(30);
+  }
+
+  @include breakpoint-down(small) {
+    padding: rem(20);
+  }
+
+  &__header {
+    font-size: rem(14);
+
+    @include breakpoint-down(medium) {
+      display: none;
+    }
+  }
+}
+
+section {
+  height: 100%;
+
+  @include breakpoint-down(medium) {
+    height: auto;
+  }
+}
+
+.row {
+  @include flex-center-all;
+  width: 100%;
+  gap: rem(14);
+
+  &--modal {
+    margin: rem(20) 0;
+  }
+}
+
+.column {
+  @include flex-center-all;
+  flex-direction: column;
+  gap: rem(20);
+}
+
+.center {
+  width: 100%;
+  @include flex-center-all;
+  flex-direction: column;
+
+  &--row {
+    @include flex-center-all;
+    flex-flow: row wrap;
+    gap: 20px;
+
+    &.col {
+      @include breakpoint-down(medium) {
+        flex-direction: column;
+      }
+    }
+  }
+}
+
+.left {
+  @include flex-center-all;
+
+  & > div {
+    margin-right: auto;
+    display: flex;
+    gap: rem(10);
+  }
+}
+
+.right {
+  @include flex-center-all;
+  width: 100%;
+
+  & > div {
+    margin-left: auto;
+    display: flex;
+    gap: rem(10);
+  }
+}
+
+.error-message {
+  color: $danger;
+  font-size: rem(14);
+
+  @include breakpoint-down(medium) {
+    font-size: rem(12.5);
+  }
+}

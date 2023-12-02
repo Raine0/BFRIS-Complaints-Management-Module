@@ -1,0 +1,56 @@
+@use "../util" as *;
+@use "../globals/" as *;
+
+.card {
+  width: 100%;
+  @include flex-align-center;
+  flex-direction: column;
+  background: $light100;
+  border-radius: rem(20);
+  position: relative;
+  box-shadow: $shadow;
+
+  &__header,
+  &__footer,
+  &__body {
+    width: 100%;
+    padding: rem(20);
+    &-content {
+      @include flex-center-all;
+      gap: rem(10);
+
+      &--left {
+        margin-right: auto;
+        display: flex;
+        gap: rem(10);
+      }
+      &--right {
+        margin-left: auto;
+        display: flex;
+        gap: rem(10);
+      }
+    }
+  }
+
+  &__header {
+    border-bottom: rem(0.5) solid rgba($dark100, 0.3);
+  }
+
+  &__body {
+    &-content {
+      flex-direction: column;
+    }
+  }
+
+  &__footer {
+    border-top: rem(0.5) solid rgba($dark100, 0.3);
+  }
+
+  &-margin-top {
+    margin-top: rem(30);
+  }
+
+  &--announcements {
+    margin-bottom: rem(30);
+  }
+}

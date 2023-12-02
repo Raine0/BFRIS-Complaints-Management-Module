@@ -1,0 +1,183 @@
+@use "../util" as *;
+@use "../globals/" as *;
+
+.dashboard {
+  &__logo {
+    display: none;
+    text-align: center;
+
+    @include breakpoint-down(medium) {
+      display: block;
+      margin-bottom: rem(30);
+    }
+
+    @include breakpoint-down(small) {
+      display: block;
+      margin-bottom: rem(40);
+    }
+
+    img {
+      width: rem(250);
+    }
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: rem(30);
+    margin-bottom: rem(30);
+
+    @include breakpoint-down(medium) {
+      grid-template-columns: repeat(2, 2fr);
+      grid-gap: rem(30);
+    }
+
+    @include breakpoint-down(small) {
+      grid-template-columns: repeat(1, 1fr);
+      grid-gap: rem(40);
+      margin-bottom: rem(40);
+    }
+  }
+
+  &__card {
+    padding: rem(25);
+    background: $light100;
+    border-radius: rem(20);
+    box-shadow: $shadow;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: 0.1s;
+
+    @include breakpoint-down(small) {
+      height: rem(155);
+    }
+
+    & > div {
+      margin-right: rem(12);
+    }
+
+    &--value {
+      font-size: rem(30);
+      font-weight: 600;
+      color: $primary;
+    }
+
+    &--label {
+      font-size: rem(14);
+      font-weight: 500;
+      color: $dark200;
+      line-height: rem(16);
+
+      @include breakpoint-down(small) {
+        font-size: rem(15);
+      }
+    }
+
+    &--icon {
+      i {
+        font-size: rem(45);
+        color: $dark200;
+
+        @include breakpoint-down(small) {
+          font-size: rem(50);
+        }
+      }
+    }
+  }
+
+  &__charts {
+    display: grid;
+    grid-gap: rem(30);
+    grid-template-columns: 35% 1fr;
+
+    @include breakpoint-down(medium) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include breakpoint-down(small) {
+      grid-template-columns: 1fr;
+
+      grid-gap: rem(40);
+    }
+  }
+
+  &__chart {
+    max-height: rem(465);
+    background: $light100;
+    padding: rem(15) rem(10);
+    border-radius: rem(20);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: $shadow;
+
+    @include breakpoint-down(medium) {
+      max-height: rem(350);
+      padding: rem(10);
+    }
+
+    @include breakpoint-down(small) {
+      padding: rem(20);
+    }
+
+    label {
+      color: $dark200;
+      font-size: rem(14);
+      font-weight: 500;
+      margin-bottom: rem(10);
+
+      @include breakpoint-down(small) {
+        font-size: rem(12);
+        text-align: center;
+      }
+    }
+
+    &--chart1 {
+      margin-top: rem(30);
+
+      canvas {
+        max-height: 85%;
+
+        @include breakpoint-down(medium) {
+          max-height: 93%;
+        }
+
+        @include breakpoint-down(small) {
+          max-height: 100%;
+        }
+      }
+    }
+
+    &--chart2,
+    &--chart3 {
+      canvas {
+        max-height: 92%;
+      }
+    }
+  }
+
+  &__down-arrow {
+    font-size: rem(15);
+    position: absolute;
+    bottom: 3%;
+    left: 50%;
+    transform: translate(50%, 50%);
+
+    i {
+      color: $primary;
+    }
+
+    @include breakpoint-down(medium) {
+      display: none;
+    }
+  }
+
+  &__notes {
+    padding: rem(50) 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

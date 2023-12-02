@@ -1,0 +1,95 @@
+@use "../util" as *;
+@use "../globals/" as *;
+
+.alert {
+  min-width: rem(225);
+  position: absolute;
+  top: rem(90);
+  right: rem(13);
+  padding: rem(15);
+  border-radius: rem(10);
+  box-shadow: $shadow;
+  @include flex-align-center;
+  overflow: hidden;
+  z-index: 10;
+  animation: show 1s ease forwards;
+
+  &--hide {
+    animation: hide 2.5s ease forwards;
+  }
+
+  &--success {
+    background: lighten($success, 62);
+    border-left: rem(4) solid $success;
+
+    .alert__icon,
+    .alert__message {
+      color: $success;
+    }
+  }
+
+  &--danger {
+    background: lighten($danger, 34);
+    border-left: rem(4) solid $danger;
+
+    .alert__icon,
+    .alert__message {
+      color: $danger;
+    }
+  }
+
+  &__icon {
+    font-size: rem(30);
+    margin-right: rem(8);
+  }
+
+  &__message {
+    font-size: rem(14);
+  }
+
+  &__close {
+    margin-left: auto;
+    color: $dark200;
+    font-size: rem(25);
+    cursor: pointer;
+    transition: 175ms;
+
+    &:hover {
+      transform: scale(1.12);
+    }
+  }
+}
+
+@keyframes show {
+  0% {
+    transform: translateX(110%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    display: none;
+    opacity: 0;
+  }
+}
+
+@keyframes hide {
+  0% {
+    transform: translateX(0);
+    opacity: .75;
+  }
+  40% {
+    transform: translateX(-30%);
+    opacity: 1;
+  }
+
+  80% {
+    transform: translateX(-30%);
+    opacity: 1;
+  }
+  
+  100% {
+    transform: translateX(0);
+    opacity: 0;
+    
+  }
+}

@@ -1,0 +1,178 @@
+@use "../util" as *;
+@use "../globals/" as *;
+
+.dropdown {
+  position: absolute;
+  padding: 0 rem(16);
+  background: $light200;
+  border-radius: rem(12);
+  box-shadow: $shadow;
+  visibility: hidden;
+  opacity: 0;
+  transition: 300ms;
+
+
+  &--user {
+    top: rem(50);
+    right: rem(32);
+
+    @include breakpoint-down(small){
+      right: rem(15);
+    }
+
+    &--show {
+      top: rem(68);
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .dropdown__item {
+
+      @include breakpoint-down(small){
+        padding: rem(12) 0;
+      }
+
+      a {
+
+        @include breakpoint-down(small){
+          font-size: rem(12);
+        }
+
+        i {
+
+          @include breakpoint-down(small){
+            font-size: rem(18);
+          }
+        }
+      }
+    }
+  }
+
+  &--cert {
+    top: 0;
+    right: 0;
+    padding: 0 rem(14);
+    z-index: 1;
+
+    &--show {
+      top: rem(72);
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .dropdown__item {
+      padding: rem(14) 0;
+
+      a {
+        font-size: rem(13);
+        white-space: nowrap;
+
+        i {
+          font-size: rem(20);
+          margin-right: rem(10);
+        }
+      }
+    }
+  }
+
+  &--export {
+    font-weight: 400;
+    right: 0;
+    top: rem(110);
+    padding: 0 rem(14);
+    z-index: 1;
+
+    &--show {
+      width: rem(150);
+      position: absolute;
+      top: rem(150);
+  
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .dropdown__item {
+      padding: rem(10) 0;
+
+      a {
+        font-size: rem(12);
+        white-space: nowrap;
+
+        i {
+          font-size: rem(20);
+          margin-right: rem(8);
+        }
+      }
+    }
+  }
+
+  &--history {
+    right: 0;
+    top: rem(90);
+    z-index: 1;
+    font-weight: 400;
+
+    &--show {
+      position: absolute;
+      top: rem(120);
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .dropdown__item {
+      padding: rem(10) 0;
+
+      a {
+        font-size: rem(12);
+        white-space: nowrap;
+
+        i {
+          font-size: rem(20);
+          margin-right: rem(8);
+        }
+      }
+    }
+  }
+
+  li {
+    padding: rem(16) 0;
+    border-bottom: rem(0.5) solid rgba($dark100, 0.3);
+
+    &:last-child {
+      border-bottom: 0;
+    }
+
+    &:hover {
+      a {
+        color: $dark400;
+      }
+    }
+
+    a {
+      color: rgba($dark200, 0.85);
+      font-size: rem(15);
+      letter-spacing: rem(0.5);
+      transition: 500ms;
+      @include flex-align-center;
+
+      i {
+        font-size: rem(24);
+        margin-right: rem(10);
+
+        @include breakpoint-down(small){
+        margin-right: rem(8);
+
+        }
+      }
+    }
+  }
+}
+
+
+.dropdownContent{
+  &--show{
+    top: rem(45);
+      visibility: visible;
+      opacity: 1;
+  }
+}
