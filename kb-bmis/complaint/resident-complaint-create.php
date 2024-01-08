@@ -229,13 +229,16 @@ if (filter_has_var(INPUT_GET, 'complainant_id') && filter_has_var(INPUT_GET, 're
                                                     <div class="select__wrapper">
                                                         <select name="status" id="status" class="select select--resident-profile" required>
                                                             <option disabled hidden>Select</option>
-                                                            <option value="1st Invitation" selected>1st Invitation</option>
-                                                            <option value="2nd Invitation">2nd Invitation</option>
-                                                            <option value="3rd Invitation">3rd Invitation</option>
+                                                            <option value="1st Mediation" selected>1st Mediation</option>
+                                                            <option value="2nd Mediation">2nd Mediation</option>
+                                                            <option value="3rd Mediation">3rd Mediation</option>
+                                                            <option value="1st Conciliation">1st Conciliation</option>
+                                                            <option value="2nd Conciliation">2nd Conciliation</option>
+                                                            <option value="3rd Conciliation">3rd Conciliation</option>
                                                             <option value="Certification of File Action">Certification of File Action</option>
                                                             <option value="Settled Concillation">Settled Concillation</option>
                                                             <option value="Settled Mediation">Settled Mediation</option>
-                                                            <option value="Case Dissmissed/Withdraw">Case Dissmissed/Withdraw</option>
+                                                            <option value="Case Dissmissed/Withdraw">Case Dismissed/Withdraw</option>
 
                                                         </select>
                                                     </div>

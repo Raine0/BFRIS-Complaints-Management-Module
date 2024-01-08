@@ -15,12 +15,15 @@ if (filter_has_var(INPUT_GET, 'case_no')) {
     $residentcomplaintStatement->execute();
 
     $complaintCount = $residentcomplaintStatement->rowCount();
-
+    
     if (!$complaintCount === 1) {
         $_SESSION['error'] = 'Case No Count = ' . $complaintCount;
         header("location: ./../resident-complaint-list.php");
     }
     $complaint = $residentcomplaintStatement->fetch(PDO::FETCH_ASSOC);
+
+    // Fetch the current complaint status from the database
+    $complaint_status = $complaint['complaint_status'];
 }
 ?>
 
@@ -196,18 +199,33 @@ if (filter_has_var(INPUT_GET, 'case_no')) {
                                                 <div class="select__wrapper">
                                                     <select name="status" id="status" class="select select--resident-profile" required>
                                                         <option disabled hidden value="">Select</option>
-                                                        <option value="<?php echo $complaint['complaint_status'] ?>" selected>1st Invitation</option>
-                                                        <option value="2nd Invitation">2nd Invitation</option>
-                                                        <option value="3rd Invitation">3rd Invitation</option>
-                                                        <option value="Certification of File Action">Certification of File Action</option>
-                                                        <option value="Settled Concillation">Settled Concillation</option>
-                                                        <option value="Settled Mediation">Settled Mediation</option>
-                                                        <option value="Case Dissmissed/Withdraw">Case Dissmissed/Withdraw</option>
+                                                        <?php
+                                                            $statuses = array(
+                                                                "1st Mediation",
+                                                                "2nd Mediation",
+                                                                "3rd Mediation",
+                                                                "1st Conciliation",
+                                                                "2nd Conciliation",
+                                                                "3rd Conciliation",
+                                                                "Certification of File Action",
+                                                                "Settled Conciliation",
+                                                                "Settled Mediation",
+                                                                "Case Dissmissed/Withdraw"
+                                                            );
+
+                                                            foreach ($statuses as $status) {
+                                                                $selected = ($complaint_status == $status) ? 'selected' : '';
+                                                                echo "<option value=\"$status\" $selected>$status</option>";
+                                                            }
+                                                        ?>
                                                     </select>
+                                                    <!-- Debugging information -->
+                                                    <p>Current Status: <?php echo $complaint_status; ?></p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+
 
                                     <div class="profile-info__container">
                                         <div class="input__wrapper">
