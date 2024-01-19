@@ -1,20 +1,17 @@
 <!--=============== ADDING NEW OFFICIAL MODAL ===============-->
-<div class="modal__wrapper" id="modal-complaint-history">
+<div class="modal__wrapper" id="modal-case-history">
   <section class="modal__window modal__window--md">
     <header class="modal__header">
-      <h3>Resident Respondent's History</h3>
+      <h3>Resident Complaint History</h3>
       <button type="button" class="modal__close close" aria-label="Close modal window">
         <i class='bx bx-x'></i>
       </button>
     </header>
     <div class="modal__body">
-      <table id="complaint-history-modal" class="row-border">
+      <table id="case-history-modal" class="row-border">
         <thead>
           <ul class="history-info__list" style="margin: 0">
             <li class="history-info__item history-info__item--active respondentTab">
-              <span>
-                Respondent
-              </span>
             </li>
           </ul>
 

@@ -168,14 +168,14 @@ if (filter_has_var(INPUT_GET, 'complainant_id') && filter_has_var(INPUT_GET, 're
                                             </div>
                                         </div>
 
-                                        <div class="profile-info__container">
+                                        <!-- <div class="profile-info__container">
                                             <div class="input__wrapper">
                                                 <label for="off_position">Position</label>
                                                 <div class="input__inner">
                                                     <input type="text" name="off_position" id="off_position" class="input--light300" value="<?php echo $mediator['off_position'] ?>" disabled>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </section>
 
                                     <br>

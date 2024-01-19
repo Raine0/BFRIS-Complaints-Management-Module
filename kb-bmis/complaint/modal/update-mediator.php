@@ -56,9 +56,9 @@
                                             <?php echo $official['suffix'] ?? "" ?>
                                         </div>
 
-                                        <div class="table__row-sub">
+                                        <!-- <div class="table__row-sub">
                                             <div>Position: <?php echo $official['off_position'] ?></div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </a>
                             </td>

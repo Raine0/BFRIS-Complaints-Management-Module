@@ -574,6 +574,7 @@ i {
 .button--md {
   padding: 0.625rem;
   font-size: 0.875rem;
+  margin-bottom: 8px;
 }
 @media (max-width: 71.8125em) {
   .button--md {

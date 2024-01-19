@@ -45,6 +45,13 @@ if (filter_has_var(INPUT_GET, 'case_no')) {
                         <?php endif; ?>
 
                         <?php if ($user_role === 'Administrator' || $user_role === 'Barangay Secretary' || $user_role === 'Barangay Clerk - Complaint Admin') : ?>
+                        <a class="button button--info button--md modal-trigger" data-modal-id="modal-case-history">
+                            <i class='bx bxs-book-bookmark' data-modal-id="modal-case-history"></i>
+                            CASE HISTORY
+                        </a>
+                        <?php endif; ?>
+
+                        <?php if ($user_role === 'Administrator' || $user_role === 'Barangay Secretary' || $user_role === 'Barangay Clerk - Complaint Admin') : ?>
                         <a class="button button--info button--md modal-trigger" data-modal-id="modal-complaint-history">
                             <i class='bx bxs-book-bookmark' data-modal-id="modal-complaint-history"></i>
                             HISTORY
@@ -165,14 +172,14 @@ if (filter_has_var(INPUT_GET, 'case_no')) {
                                         </div>
                                     </div>
 
-                                    <div class="profile-info__container">
+                                    <!-- <div class="profile-info__container">
                                         <div class="input__wrapper">
                                             <label for="off_position">Position</label>
                                             <div class="input__inner">
                                                 <input type="text" name="off_position" id="off_position" class="input--light300" value="<?php echo $complaint['off_position'] ?>" disabled>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </section>
 
                                 <br>
@@ -278,6 +285,7 @@ if (filter_has_var(INPUT_GET, 'case_no')) {
         </form>
     </div>
     <?php require './modal/complaint-history.php'; ?>
+    <?php require './modal/case-history.php'; ?>
 </main>
 
 <?php if (isset($_SESSION['success'])) { ?>
