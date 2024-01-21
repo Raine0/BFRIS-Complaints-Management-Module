@@ -184,12 +184,15 @@ if (filter_has_var(INPUT_GET, 'case_no')) {
                                                                 "Scandal",
                                                                 "Oral Defamation",
                                                                 "Cyber Libel",
-                                                                "Settled Mediation",
+                                                                "Slander",
                                                                 "Online Libel",
                                                                 "Trespassing",
-                                                                "Ejectment"
-                                                                
+                                                                "Ejectment",
+                                                                "Alarm and Scandal"
                                                             );
+
+                                                            // Sort the array alphabetically
+                                                            sort($fors);
 
                                                             foreach ($fors as $for) {
                                                                 $selected = ($reason == $for) ? 'selected' : '';
