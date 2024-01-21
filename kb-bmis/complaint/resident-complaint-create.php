@@ -194,11 +194,28 @@ if (filter_has_var(INPUT_GET, 'complainant_id') && filter_has_var(INPUT_GET, 're
                                             </div>
                                         </div>
 
-                                        <div class="profile-info__container">
+                                        <div class="profile-info__container">           
                                             <div class="input__wrapper">
                                                 <label for="for">FOR <strong style="color:red;">*</strong></label>
-                                                <div class="input__inner">
-                                                    <input type="text" name="for" id="for" title="Numbers and Special Characters are not allowed." class="input--light300" required>
+                                                <div class="input__wrapper">
+                                                    <div class="select__wrapper">
+                                                        <select name="for" id="for" class="select select--resident-profile" required>
+                                                            <!-- <option disabled hidden>Select</option> -->
+                                                            <option value="Unjust Vexation" selected>Unjust Vexation</option>
+                                                            <option value="Malicious Mischief">Malicious Mischief</option>
+                                                            <option value="Physical Injury">Physical Injury</option>
+                                                            <option value="Demand for Payment">Demand for Payment</option>
+                                                            <option value="Threat">Threat</option>
+                                                            <option value="Harassment">Harassment</option>
+                                                            <option value="Scandal">Scandal</option>
+                                                            <option value="Oral Defamation">Oral Defamation</option>
+                                                            <option value="Cyber Libel">Cyber Libel</option>
+                                                            <option value="Settled Mediation">Settled Mediation</option>
+                                                            <option value="Online Libel">Online Libel</option>
+                                                            <option value="Ejectment">Ejectment</option>
+                                                            <option value="Trespassing">Trespassing</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -238,8 +255,7 @@ if (filter_has_var(INPUT_GET, 'complainant_id') && filter_has_var(INPUT_GET, 're
                                                             <option value="Certification of File Action">Certification of File Action</option>
                                                             <option value="Settled Concillation">Settled Concillation</option>
                                                             <option value="Settled Mediation">Settled Mediation</option>
-                                                            <option value="Case Dissmissed/Withdraw">Case Dismissed/Withdraw</option>
-
+                                                            <option value="Case Dissmissed/Withdraw">Case Dissmissed/Withdraw</option>
                                                         </select>
                                                     </div>
                                                 </div>

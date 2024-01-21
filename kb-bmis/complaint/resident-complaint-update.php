@@ -22,8 +22,9 @@ if (filter_has_var(INPUT_GET, 'case_no')) {
     }
     $complaint = $residentcomplaintStatement->fetch(PDO::FETCH_ASSOC);
 
-    // Fetch the current complaint status from the database
+    // Fetch the current complaint status and reason from the database
     $complaint_status = $complaint['complaint_status'];
+    $reason = $complaint['reason'];
 }
 ?>
 
@@ -166,11 +167,39 @@ if (filter_has_var(INPUT_GET, 'case_no')) {
                                         </div>
                                     </div>
 
-                                    <div class="profile-info__container">
+                                    <div class="profile-info__container">           
                                         <div class="input__wrapper">
                                             <label for="for">FOR <strong style="color:red;">*</strong></label>
-                                            <div class="input__inner">
-                                                <input type="text" name="for" id="for" class="input--light300" value="<?php echo $complaint['reason'] ?>" required>
+                                            <div class="input__wrapper">
+                                                <div class="select__wrapper">
+                                                    <select name="for" id="for" class="select select--resident-profile" required>
+                                                        <?php
+                                                            $fors = array(
+                                                                "Unjust Vexation",
+                                                                "Malicious Mischief",
+                                                                "Physical Injury",
+                                                                "Demand for Payment",
+                                                                "Threat",
+                                                                "Harassment",
+                                                                "Scandal",
+                                                                "Oral Defamation",
+                                                                "Cyber Libel",
+                                                                "Settled Mediation",
+                                                                "Online Libel",
+                                                                "Trespassing",
+                                                                "Ejectment"
+                                                                
+                                                            );
+
+                                                            foreach ($fors as $for) {
+                                                                $selected = ($reason == $for) ? 'selected' : '';
+                                                                echo "<option value=\"$for\" $selected>$for</option>";
+                                                            }
+                                                        ?>
+                                                    </select>
+                                                    <!-- Debugging information -->
+                                                    <p>Current Status: <?php echo $reason; ?></p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
