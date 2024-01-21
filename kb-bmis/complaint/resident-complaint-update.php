@@ -198,7 +198,7 @@ if (filter_has_var(INPUT_GET, 'case_no')) {
                                                         ?>
                                                     </select>
                                                     <!-- Debugging information -->
-                                                    <p>Current Status: <?php echo $reason; ?></p>
+                                                    <p>Current Reason: <?php echo $reason; ?></p>
                                                 </div>
                                             </div>
                                         </div>
